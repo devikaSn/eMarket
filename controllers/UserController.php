@@ -178,7 +178,9 @@ class UserController extends Controller
        ]);  
   }
 
-
+  /*
+    Handles edit ad and delete ad action
+  */
   public function actionEditad($adId, $shouldDelete = false) {
     
     $model = Adsinfo::find()->where(['adId' => $adId])->one();
@@ -203,6 +205,7 @@ class UserController extends Controller
               if($upmodel->file) {
 
                   $appendWithProductName= $model->adId;
+                  //unlinking the old image
                   unlink(Yii::$app->basePath.'/web/'.$model->productImage);
                   $randomInteger = rand(1000,100000);
                   //Making a unique name for image
