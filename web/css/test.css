@@ -56,10 +56,10 @@ a:visited {
 }
 
 .product-edit {
-	text-align: left;
+	float: left;
 	width: 50%;
 }
 .product-del {
-	text-align: right;
+	float: right;
 	width: 50%;
 }
