@@ -10,7 +10,7 @@ $this->title = 'My Yii Application';
     <div class="jumbotron">
         <?php if(strlen($name) > 2) { ?>
 
-               <h1>Welcome <?php echo $name ?></h1>
+               <h1>Welcome <?php echo $name ?>!</h1>
         <?php }else { ?>
         
                <h1>Welcome To DealIn!</h1>
@@ -20,7 +20,7 @@ $this->title = 'My Yii Application';
 
         <p class="lead">The coolest free classifieds website</p>
 
-        <p><a class="btn btn-lg btn-success" href="index.php?r=site%2Fproducts">Browse Products</a></p>
+        <p><a class="btn btn-primary" href="index.php?r=site%2Fproducts">Browse Products</a></p>
     </div>
 
     <div class="body-content">

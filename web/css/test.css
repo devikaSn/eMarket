@@ -34,7 +34,7 @@
 }
 
 a:visited {
-	color: inherit;
+	color: #00628B;
 }
 
 .div-product-details {
@@ -62,4 +62,16 @@ a:visited {
 .product-del {
 	float: right;
 	width: 50%;
+}
+
+h1, h2, h3 {
+	color: #00628B;
+}
+
+.lead, .jumbotron {
+	color: #00628B;
+}
+
+.div-form {
+	color: #00628B;
 }

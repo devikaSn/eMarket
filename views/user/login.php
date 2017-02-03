@@ -12,7 +12,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
 ?>
 <?php echo(Yii::$app->user->isGuest);?>
-<div class ="signup-form">
+
+<div class ="div-form">
     <h1><?= Html::encode($this->title) ?></h1>
     <p>Please fill out the following fields to login:</p>
 

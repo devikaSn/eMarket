@@ -10,7 +10,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class ="div-form">
 	<h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Please fill out the following fields to sign up:</p>
+    <p style="color:black;">Please fill out the following fields to sign up:</p>
 <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'name')->textInput(['autofocus' => true]) ?>
