@@ -28,8 +28,7 @@ use app\models\Adsinfo;
 
     	 			<p> 
                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure d
-                        <!-- <?php echo $product['adDescription']; ?> -->
+                         <?php echo $product['adDescription']; ?> 
                         <br><br>
     	 			</p>
                         <b style="color:#00628B"> Contact Seller:</b><br>
