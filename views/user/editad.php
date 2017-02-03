@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = 'My Account  / '. $this->title;
 		    <?= $form->field($model, 'price')->label("Product Price") ?>
 		    <?= $form->field($model, 'contactAddress')->textArea()->label("Contact Address") ?>
 		    <?= $form->field($model, 'contactNumber')->label("Contact Number") ?>
-		   	<?= $form->field($upmodel, 'file')->fileInput() ?>
+		    <?= $form->field($upmodel, 'file')->fileInput() ?>
 		    <div class="form-group">
 		        <?= Html::submitButton('Save Changes', ['class' => 'btn btn-primary'],  array('name' => 'submitButton')) ?>
 		    </div>

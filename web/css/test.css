@@ -49,11 +49,16 @@ a:visited {
 	text-align: center;
 }
 
+.product-detail-image img {
+	max-width: 550px;
+}
+
 .product-detail-description {
 	width:70%;
 	height: auto;
-	text-align: left;
+	float: right;
 }
+
 
 .product-edit {
 	float: left;

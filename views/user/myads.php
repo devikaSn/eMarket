@@ -42,13 +42,13 @@ $this->params['breadcrumbs'][] = 'My Account  / '. $this->title;
                     </h4>
                        	<div class= "product-edit">
 
-                           <?php echo Html::a('Edit Ad', ['/user/editad', 'adId' => $productInfo['adId']], ['class'=>'btn btn-primary']) ;  
+                           <?php echo Html::a('Edit Ad', ['/user/editad', 'adId' => $productInfo['adId']], ['class'=>'btn btn-default btn-sm']) ;  
                            ?>
                         </div><div class="product-del">
                            <?php echo Html::a('Delete',['/user/editad', 
                                         'adId' => $productInfo['adId'],
                                          'shouldDelete' => true],
-                                          ['class'=>'btn btn-primary',
+                                          ['class'=>'btn btn-default btn-sm',
                                             'data' => [
                                                 'confirm' => 'Are you sure you want to delete?',
                                                 // 'method' => 'post'
