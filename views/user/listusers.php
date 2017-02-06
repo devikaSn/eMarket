@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = 'My Account  / '. $this->title;
 
        ?>
 
-                       <tr style="height:50px;">
+                       <tr style="height:50px;color:#00628B">
                           <td><?php echo $userInfo['name']; ?></td>
                           <td><?php echo $name['username']; ?></td>
                           <td><?php echo $userInfo['mobile']; ?></td> 
