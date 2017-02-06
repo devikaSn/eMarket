@@ -166,7 +166,7 @@ class UserController extends Controller
   public function actionMyads() {
 
        $query = Adsinfo::find()->where(['userId' => Yii::$app->user->id])
-                ->orderBy(['adTitle' => SORT_ASC]);;
+                ->orderBy(['adTitle' => SORT_ASC]);
        $count = $query->count();
        //creating the pagination object
        $pagination = new Pagination(['totalCount' => $count, 'defaultPageSize' => 6]);
@@ -250,6 +250,9 @@ class UserController extends Controller
      ]);  
   } 
 
+ /*
+  Deletes the users
+ */
   public function actionDeleteuser($userId) {
       $model = Userinfo::find()->where(['userId' => $userId])->one();
       if($model) {

@@ -232,7 +232,7 @@ class SiteController extends Controller
     public function actionProducts() {
 
         //preparing the query
-       $query = Adsinfo::find();
+       $query = Adsinfo::find()->orderBy(['adTitle' => SORT_ASC]);
        // get the total number of users
        $count = $query->count();
        //creating the pagination object
@@ -269,7 +269,7 @@ class SiteController extends Controller
      */
     public function actionFurniture() {
 
-       $query = Adsinfo::find()->where(['categoryId' => 1]);
+       $query = Adsinfo::find()->where(['categoryId' => 1])->orderBy(['adTitle' => SORT_ASC]);
        $count = $query->count();
        //creating the pagination object
        $pagination = new Pagination(['totalCount' => $count, 'defaultPageSize' => 6]);
@@ -290,7 +290,7 @@ class SiteController extends Controller
      */
     public function actionFashion() {
 
-       $query = Adsinfo::find()->where(['categoryId' => 2]);
+       $query = Adsinfo::find()->where(['categoryId' => 2])->orderBy(['adTitle' => SORT_ASC]);
        $count = $query->count();
        //creating the pagination object
        $pagination = new Pagination(['totalCount' => $count, 'defaultPageSize' => 6]);
@@ -311,7 +311,7 @@ class SiteController extends Controller
      */
     public function actionElectronics() {
 
-       $query = Adsinfo::find()->where(['categoryId' => 3]);
+       $query = Adsinfo::find()->where(['categoryId' => 3])->orderBy(['adTitle' => SORT_ASC]);
        $count = $query->count();
        //creating the pagination object
        $pagination = new Pagination(['totalCount' => $count, 'defaultPageSize' => 6]);
@@ -332,7 +332,7 @@ class SiteController extends Controller
      */
     public function actionCrafts() {
 
-       $query = Adsinfo::find()->where(['categoryId' => 4]);
+       $query = Adsinfo::find()->where(['categoryId' => 4])->orderBy(['adTitle' => SORT_ASC]);
        $count = $query->count();
        //creating the pagination object
        $pagination = new Pagination(['totalCount' => $count, 'defaultPageSize' => 6]);
@@ -352,17 +352,17 @@ class SiteController extends Controller
         //fetch the query from db
         if((!$categoryId == NULL) && ((!$lowerPrice == NULL) && (!$upperPrice == NULL))) {
             if($productTitle == NULL) {
-                 $query = Adsinfo::find()->where(['categoryId' => $categoryId])->andWhere(['between', 'price', $lowerPrice, $upperPrice ]);
+                 $query = Adsinfo::find()->where(['categoryId' => $categoryId])->andWhere(['between', 'price', $lowerPrice, $upperPrice ])->orderBy(['adTitle' => SORT_ASC]);
             }else {
-                 $query = Adsinfo::find()->where(['categoryId' => $categoryId, 'adTitle' => $productTitle])->andWhere(['between', 'price', $lowerPrice, $upperPrice ]);
+                 $query = Adsinfo::find()->where(['categoryId' => $categoryId, 'adTitle' => $productTitle])->andWhere(['between', 'price', $lowerPrice, $upperPrice ])->orderBy(['adTitle' => SORT_ASC]);
             }
            
         }else {
             if(($lowerPrice == NULL) && ($upperPrice == NULL)) {
                 if($productTitle == NULL) {
-                    $query = Adsinfo::find()->where(['categoryId' => $categoryId]);
+                    $query = Adsinfo::find()->where(['categoryId' => $categoryId])->orderBy(['adTitle' => SORT_ASC]);
                 }else {
-                    $query = Adsinfo::find()->where(['categoryId' => $categoryId, 'adTitle' => $productTitle]);
+                    $query = Adsinfo::find()->where(['categoryId' => $categoryId, 'adTitle' => $productTitle])->orderBy(['adTitle' => SORT_ASC]);
                 }  
             }
         }
