@@ -21,13 +21,26 @@ $config = [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        'mailer' => [
-            'class' => 'yii\swiftmailer\Mailer',
-            // send all mails to a file by default. You have to set
-            // 'useFileTransport' to false and configure a transport
-            // for the mailer to send real emails.
-            'useFileTransport' => true,
-        ],
+        // 'mailer' => [
+        //     'class' => 'yii\swiftmailer\Mailer',
+        //         // 'viewPath' => '@common/mail',
+        //         'transport' => [
+        //             'class' => 'Swift_MailTransport',
+        //         ],
+        //     //arjunphp.com/send-e-mail-yii2/#sthash.GPKKnYCW.dpuf
+        //     // send all mails to a file by default. You have to set
+        //     // 'useFileTransport' to false and configure a transport
+        //     // for the mailer to send real emails.
+        //     'useFileTransport' => false,
+        // ],
+          'mailer' => [
+                'class' => 'yii\swiftmailer\Mailer',
+                // 'viewPath' => '@common/mail',
+                'transport' => [
+                    'class' => 'Swift_MailTransport',
+                ],
+                'useFileTransport' => false,
+            ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [

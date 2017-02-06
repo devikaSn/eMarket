@@ -11,7 +11,6 @@ $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
-<?php echo(Yii::$app->user->isGuest);?>
 
 <div class ="div-form">
     <h1><?= Html::encode($this->title) ?></h1>
@@ -29,5 +28,9 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php ActiveForm::end(); ?>
     <p>
         You're new?? <a href="index.php?r=user%2Fsignup">Click here to register</a>
+    </p>
+    <br><br>
+     <p>
+        Forgot your password<a href="index.php?r=site%2Fforgotpassword">Click here to reset</a>
     </p>
 </div>

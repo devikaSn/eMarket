@@ -38,18 +38,6 @@ class Userlogin extends \yii\db\ActiveRecord
         ];
     }
 
-    // /**
-    //  * @inheritdoc
-    //  */
-    // public function attributeLabels()
-    // {
-    //     return [
-    //         'id' => 'ID',
-    //         'username' => 'Email',
-    //         'password' => 'Password',
-    //     ];
-    // }
-
     /*
         Checks if an account is already created with the email id given
     */
@@ -90,5 +78,6 @@ class Userlogin extends \yii\db\ActiveRecord
     {
         return static::findOne(['username' => $username]);
     }
- 
+
+
 }

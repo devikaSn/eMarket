@@ -8,6 +8,7 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use app\models\Userinfo;
 
 AppAsset::register($this);
 ?>
@@ -59,12 +60,26 @@ AppAsset::register($this);
                 'url' => ['/user/account'],
                 'options'=>['class'=>'dropdown'],
                 'template' => '<a href="{url}" class="href_class">{label}</a>',
-                'visible' => !Yii::$app->user->isGuest,
+                'visible' => !Yii::$app->user->isGuest&&!Userinfo::isUserAdmin(),
                 'items' => [
                   ['label' => 'Manage my Ads', 'url' =>  ['user/myads']],
                   ['label' => 'Create New Ad', 'url' => ['user/createad']],
                   ['label' => 'Edit Profile', 'url' =>  ['user/account']],
                   ['label' => 'Change Password', 'url' =>  ['user/changepassword']],
+                ],
+            ], 
+
+            ['label' => 'My Account', 
+                'url' => ['/user/account'],
+                'options'=>['class'=>'dropdown'],
+                'template' => '<a href="{url}" class="href_class">{label}</a>',
+                'visible' => !Yii::$app->user->isGuest && Userinfo::isUserAdmin(),
+                'items' => [
+                  ['label' => 'Manage Users', 'url' => ['user/listusers']],
+                  ['label' => 'Edit Profile', 'url' =>  ['user/account']],
+                  ['label' => 'Change Password', 'url' =>  ['user/changepassword']],
+                  ['label' => 'Manage my Ads', 'url' =>  ['user/myads']],
+                  ['label' => 'Create New Ad', 'url' => ['user/createad']],
                 ],
             ], 
            

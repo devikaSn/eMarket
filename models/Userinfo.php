@@ -59,4 +59,17 @@ class Userinfo extends \yii\db\ActiveRecord
              $this->addError($attribute, 'Please enter a valid mobile number');
         }
     }
+
+
+    /*
+       Checks if the logged in user is Admin
+    */
+     public function isUserAdmin() {
+
+        $user = Userinfo::find()
+                ->where(['userId' => Yii::$app->user->id])
+                ->one();
+        return $user->role;
+    }
+ 
 }

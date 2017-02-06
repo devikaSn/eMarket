@@ -165,7 +165,8 @@ class UserController extends Controller
   */
   public function actionMyads() {
 
-       $query = Adsinfo::find()->where(['userId' => Yii::$app->user->id]);
+       $query = Adsinfo::find()->where(['userId' => Yii::$app->user->id])
+                ->orderBy(['adTitle' => SORT_ASC]);;
        $count = $query->count();
        //creating the pagination object
        $pagination = new Pagination(['totalCount' => $count, 'defaultPageSize' => 6]);
@@ -226,5 +227,47 @@ class UserController extends Controller
           ]);  
       }
     }
+  }
+
+  /*
+    Handles deletion of users
+  */
+  public function actionListusers() {
+
+   
+     $query = Userinfo::find()
+                ->where(['<>', 'userId',Yii::$app->user->id])
+                ->orderBy(['name' => SORT_ASC]);
+     $count = $query->count();
+       //creating the pagination object
+     $pagination = new Pagination(['totalCount' => $count, 'defaultPageSize' => 6]);
+     $usersArray = $query->offset($pagination->offset)
+          ->limit($pagination->limit)
+          ->all();
+     return $this->render('listusers', [
+        'usersArray' => $usersArray,
+        'pagination' => $pagination,
+     ]);  
+  } 
+
+  public function actionDeleteuser($userId) {
+      $model = Userinfo::find()->where(['userId' => $userId])->one();
+      if($model) {
+          //deleting from userinfo table
+          $model->delete();
+          $loginmodel = Userlogin::find()->where(['id' => $userId])->one();
+          //deleting from userinfo table
+          $loginmodel->delete();
+           //deleting user's ads
+          Yii::$app
+              ->db
+              ->createCommand()
+              ->delete('adsinfo', ['userId' => $userId])
+              ->execute();
+          // $adsmodel->delete();
+          return Yii::$app->response->redirect(Url::to(['user/listusers',
+          ]));
+      }
+   
   }
 }

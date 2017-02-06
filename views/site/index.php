@@ -2,6 +2,9 @@
 
 /* @var $this yii\web\View */
 use yii\helpers\Html;
+defined('YII_DEBUG') or define('YII_DEBUG',false);
+
+
 
 $this->title = 'My Yii Application';
 ?>

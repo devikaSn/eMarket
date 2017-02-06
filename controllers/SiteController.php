@@ -18,6 +18,8 @@ use app\models\Adsinfo;
 use app\models\Productcategory;
 use app\models\SearchForm;
 use app\models\Userinfo;
+use app\models\ForgotPassword;
+use app\models\ResetPasswordForm;
 
 class SiteController extends Controller
 {
@@ -99,6 +101,7 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             //Checking if user is logged in
             if(!Yii::$app->user->isGuest) {
+                 $isUserAdmin = Userinfo::isUserAdmin();
                  return $this->goBack();    
             }else {
                return $this->render('login', [
@@ -125,6 +128,74 @@ class SiteController extends Controller
         return $this->goHome();
     }
 
+
+    /**
+     * Displays forgot passowrd page.
+     *
+     * @return string
+     */
+    public function actionForgotpassword() {
+
+      $model = new ForgotPassword();
+      if($model->load(Yii::$app->request->post()) && $model->validate()) {
+        //redirect to reset password screen
+        // $getToken=rand(0, 99999);
+        // $getTime=date("H:i:s");
+        // $token=md5($getToken.$getTime);
+        // $namaPengirim="Owner Jsource Indonesia";
+        // $emailadmin="devik@qburst.com";
+        // $subjek="Reset Password";
+        // $setpesan="you have successfully reset your password<br/>
+        //     <a href='http://yourdomain.com/index.php?r=site/vertoken/view&token=".$token."'>Click Here to Reset Password</a>";
+
+
+        // $name='=?UTF-8?B?'.base64_encode($namaPengirim).'?=';
+        // $subject='=?UTF-8?B?'.base64_encode($subjek).'?=';
+        // $headers="From: $name <{$emailadmin}>\r\n".
+        //     "Reply-To: {$emailadmin}\r\n".
+        //     "MIME-Version: 1.0\r\n".
+        //     "Content-type: text/html; charset=UTF-8";
+        //         mail($emailadmin,$subject,$setpesan,$headers);
+        // $this->refresh();
+
+
+        // Yii::$app->mailer->compose()
+        // ->setFrom('devika@qburst.com')
+        // ->setTo('devika@qburst.com')
+        // ->setSubject('Reset your password')
+        // ->setTextBody('Please click the below link to reset your password')
+        // ->setHtmlBody('<b>HTML content</b>')
+        // ->send();
+        $resetModel = new ResetPasswordForm();
+
+        return Yii::$app->response->redirect(Url::to(['site/resetpassword',
+               'model' => $resetModel,
+               'username' => $model->username
+        ]));
+
+      }
+      return $this->render("forgotpassword", [
+        'model' => $model,
+      ]);
+    }
+
+
+      /**
+     * Displays reset passowrd page.
+     *
+     * @return string
+     */
+    public function actionResetpassword($model,$username) {
+        if($username) {
+          print_r(username);die;
+        }
+        $model = new ResetPasswordForm();
+        return $this->render("resetpassword", [
+         'model' => $model,
+
+      ]);
+    }
+
     /**
      * Displays contact page.
      *
@@ -139,7 +210,7 @@ class SiteController extends Controller
             return $this->refresh();
         }
         return $this->render('contact', [
-            'model' => $model,
+            'model' => $model
         ]);
     }
 
