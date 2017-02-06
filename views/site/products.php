@@ -7,6 +7,8 @@ use yii\web\View;
 use yii\helpers\Url;
 use yii\widgets\LinkPager;
 
+use app\models\Userinfo;
+
 $this->title = $pageTitle ?? 'Products';
 $this->params['breadcrumbs'][] = 'Products';
 ?>

@@ -5,6 +5,7 @@
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 use app\models\Adsinfo;
+use app\models\Userinfo;
 
 ?>
 <div class="site-about">
@@ -13,13 +14,15 @@ use app\models\Adsinfo;
         $this->params['breadcrumbs'][] = 'Products / '.$this->title;
     ?>
     <h3><?= Html::encode(strtoupper($this->title))?></h3> 
+    <?php 
+         $userInfo = Userinfo::find()->where(['userId' => $product['userId']])->one();
+    ?>
     <div class="div-product-details">
     	<div class="product-detail-image">
             <img 
                  src = <?php echo $product['productImage'] ?>
             >
     	</div>
-
     	<div class="product-detail-description">
                <br><br><br>
                 <h4>
@@ -34,13 +37,13 @@ use app\models\Adsinfo;
                         <b style="color:#00628B"> Contact Seller:</b><br>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         
-                        <?php echo  $product['contactAddress']; ?><br>
+                        <?php echo  $userInfo['contactAddress']; ?><br>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <br><br>
 
                          <b style="color:#00628B"> Phone:</b> <br>
                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <?php echo $product['contactNumber']; ?>
+                        <?php echo $userInfo['mobile']; ?>
                 </h4>
     	</div>
     </div>

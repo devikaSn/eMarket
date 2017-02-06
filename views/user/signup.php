@@ -15,9 +15,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= $form->field($model, 'name')->textInput(['autofocus' => true]) ?>
     <?= $form->field($model, 'email') ?>
+    <?= $form->field($model, 'contactAddress')->textArea()->label("Contact Address") ?>
     <?= $form->field($model, 'mobile') ?>
     <?= $form->field($model, 'password')->passwordInput() ?>
     <?= $form->field($model, 'confirmPassword')->passwordInput() ?>
+    
     <div class="form-group">
         <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>
     </div>

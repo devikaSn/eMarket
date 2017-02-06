@@ -14,6 +14,7 @@ $this->params['breadcrumbs'][] = 'My Account  / '. $this->title;
 		    <div class="div-form">
 			    <?= $form->field($model, 'name')->label("Name")->textInput(['autofocus' => true]) ?>
 			    <?= $form->field($model, 'mobile')->label("Mobile") ?>
+			    <?= $form->field($model, 'contactAddress')->textArea()->label("Contact Address") ?>
 			    <div class="form-group">
 			        <?= Html::submitButton('Save Changes', ['class' => 'btn btn-primary'],  array('name' => 'submitButton')) ?>
 			    </div>

@@ -13,14 +13,16 @@ class SignUpForm extends Model
     public $mobile;
     public $password;
     public $confirmPassword;
+    public $contactAddress;
 
     public function rules()
     {
         return [
-            [['name', 'email','mobile','password','confirmPassword'], 'required'],
+            [['name', 'email','mobile','password','confirmPassword','contactAddress'], 'required'],
             ['email', 'email'],
             ['mobile', 'validateMobileNumber'],
             ['name', 'validateName'],
+            ['contactAddress' , 'isExceeding250'],
             ['password', 'passwordStrength'],
             ['email', 'checkForAccountDuplication'],
             ['confirmPassword','compare', 'compareAttribute' => 'password','message' => 'Passwords are not matching']
@@ -67,5 +69,15 @@ class SignUpForm extends Model
                 ->exists();
        if($recordAlreadyExists) 
              $this->addError($attribute, 'An account already exists with this email id');
+    }
+
+     /*
+        Checking the description and address limit
+    */
+    public function isExceeding250($attribute,$params)
+    {
+        $pattern = '/^(?=.*[a-zA-Z0-9]).{1,250}$/';  
+        if(!preg_match($pattern, $this->$attribute))
+            $this->addError($attribute, 'Characters should not exceed 250');
     }
 }

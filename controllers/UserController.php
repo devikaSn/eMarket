@@ -41,6 +41,7 @@ class UserController extends Controller
             if($userLoginObject->save(false)) {
                 //Insert data to userinfo table
                 $userInfoObject = new Userinfo();
+                $userInfoObject->contactAddress = $model->contactAddress;
                 $userInfoObject->name = $model->name;
                 $userInfoObject->mobile = $model->mobile;
                 $userInfoObject->role = 0;
@@ -98,7 +99,6 @@ class UserController extends Controller
         $upmodel = new UploadForm();
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-
             $model->save();
             $upmodel->file = UploadedFile::getInstance($upmodel, 'file');
             if($upmodel->file) {
@@ -267,7 +267,6 @@ class UserController extends Controller
               ->createCommand()
               ->delete('adsinfo', ['userId' => $userId])
               ->execute();
-          // $adsmodel->delete();
           return Yii::$app->response->redirect(Url::to(['user/listusers',
           ]));
       }

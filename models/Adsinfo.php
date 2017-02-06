@@ -10,9 +10,7 @@ class Adsinfo extends ActiveRecord
 	public function rules()
 	{
 		return[
-            [['adTitle', 'adDescription','contactAddress','contactNumber','categoryId','price'], 'required'],
-            ['contactNumber', 'validateMobileNumber'],
-            ['contactAddress', 'isExceeding250'],
+            [['adTitle', 'adDescription','categoryId','price'], 'required'],
             ['adDescription', 'isExceeding250'],
             ['adTitle', 'isExceeding80'],
             ['productImage', 'isExceeding250'], 
@@ -36,16 +34,6 @@ class Adsinfo extends ActiveRecord
     //         ],
     //     ];
     // }
-
-	 /*
-        Validates the mobile number
-    */
-    public function validateMobileNumber($attribute, $params)
-    {
-        if (!preg_match('/^(\+\d{1,3}[- ]?)?\d{10}$/', $this->$attribute)) {
-             $this->addError($attribute, 'Please enter a valid mobile number');
-        }
-    }
 
     /*
         Checking the description and address limit

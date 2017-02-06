@@ -29,7 +29,7 @@ class Userinfo extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'mobile', 'role', 'userId'], 'required'],
+            [['name', 'mobile', 'role', 'userId','contactAddress'], 'required'],
             [['role', 'userId'], 'integer'],
             [['name'], 'string', 'max' => 80],
             ['mobile','validateMobileNumber'],
@@ -47,6 +47,7 @@ class Userinfo extends \yii\db\ActiveRecord
             'mobile' => 'Mobile',
             'role' => 'Role',
             'userId' => 'User ID',
+            'contactAddress' => 'Contact Address',
         ];
     }
 
