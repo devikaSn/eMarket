@@ -58,6 +58,7 @@ $this->params['breadcrumbs'][] = 'My Account  / '. $this->title;
             }//end of for each loop
        ?>
        </table>
+    </div>
           <?php
          // display pagination
          echo LinkPager::widget([
@@ -65,5 +66,4 @@ $this->params['breadcrumbs'][] = 'My Account  / '. $this->title;
          ]);
        }//end of else loop
       ?>    
-    </div>
 </div>

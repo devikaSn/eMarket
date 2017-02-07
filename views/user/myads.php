@@ -62,11 +62,13 @@ $this->params['breadcrumbs'][] = 'My Account  / '. $this->title;
             </div>
       <?php
             } //end of for each loop
+      ?>
+        </div>
+      <?php
          // display pagination
          echo LinkPager::widget([
             'pagination' => $pagination,
          ]);
        }//end of else loop
       ?>    
-    </div>
 </div>
