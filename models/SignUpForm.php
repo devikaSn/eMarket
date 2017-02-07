@@ -44,9 +44,9 @@ class SignUpForm extends Model
     */
     public function validateName($attribute, $params) {
 
-        $pattern = '/^([a-zA-Z]).{2,75}$/';  
+        $pattern = '/^[a-zA-Z ,.-]{2,75}$/';  
         if(!preg_match($pattern, $this->$attribute))
-            $this->addError($attribute, 'Name must contain only letters with a maximum length of 75 characters');
+            $this->addError($attribute, 'Name must contain only letters and characters such as ,.- with a maximum length of 75 characters');
     }
 
     /*

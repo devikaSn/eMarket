@@ -31,7 +31,7 @@ class Userinfo extends \yii\db\ActiveRecord
         return [
             [['name', 'mobile', 'role', 'userId','contactAddress'], 'required'],
             [['role', 'userId'], 'integer'],
-            [['name'], 'string', 'max' => 80],
+            [['name'], 'validateName'],
             ['mobile','validateMobileNumber'],
         ];
     }
@@ -61,7 +61,12 @@ class Userinfo extends \yii\db\ActiveRecord
         }
     }
 
+    public function validateName($attribute, $params) {
 
+        if(!preg_match('/^[a-zA-Z ,.-]{2,75}$/', $this->$attribute)) {
+             $this->addError($attribute, 'Name must contain only letters and valid characters such as ,.- with a maximum length of 75 characters');
+        }
+    }
     /*
        Checks if the logged in user is Admin
     */
