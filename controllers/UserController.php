@@ -55,9 +55,10 @@ class UserController extends Controller
                     $loginObject->password = $model->password;
                     if($loginObject->login()) {
                          if(!Yii::$app->user->isGuest) {
-                            return $this->render('account', [
-                                'model' => $userInfoObject,
-                            ]);   
+
+                            return Yii::$app->response->redirect(Url::to(['user/account',
+                                   'model' => $userInfoObject,
+                            ])); 
                         }
                     }
                 }
