@@ -23,7 +23,7 @@ $this->title = 'Deal In';
 
         <p class="lead">The coolest free classifieds website</p>
 
-        <p><a class="btn btn-primary" href="index.php?r=site%2Fproducts">Browse Products</a></p>
+        <p><a class="btn btn-success" href="index.php?r=site%2Fproducts">Browse Products</a></p>
     </div>
 
     <div class="body-content">
