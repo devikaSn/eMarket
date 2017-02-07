@@ -36,9 +36,22 @@ $this->title = 'Deal In';
                  ?>
                     <div class="product-item">
                                 <div class ="product-img">
-                                    <img 
+                                    <?php 
+                                      if($productInfo['productImage'] == NULL) {
+                                    ?> 
+                                       <img 
+                                      src = <?php echo 'uploads/placeholder.png' ?>
+                                      >
+                                    <?php
+                                      }else {
+                                    ?> 
+                                       <img 
                                       src = <?php echo $productInfo['productImage'] ?>
                                     >
+                                    <?php
+
+                                      }
+                                    ?>
                                 </div>
                                 <div class="product-details">
                                     <h4>
