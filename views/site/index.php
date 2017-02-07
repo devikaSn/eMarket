@@ -6,7 +6,7 @@ defined('YII_DEBUG') or define('YII_DEBUG',false);
 
 
 
-$this->title = 'My Yii Application';
+$this->title = 'Deal In';
 ?>
 <div class="site-index">
 
