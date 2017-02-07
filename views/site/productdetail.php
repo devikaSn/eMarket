@@ -20,7 +20,7 @@ use app\models\Userinfo;
     <div class="div-product-details">
     	<div class="product-detail-image">
            <?php 
-              if($productInfo['productImage'] == NULL) {
+              if($product['productImage'] == NULL) {
             ?> 
                <img 
               src = <?php echo 'uploads/placeholder.png' ?>
@@ -29,7 +29,7 @@ use app\models\Userinfo;
               }else {
             ?> 
                <img 
-              src = <?php echo $productInfo['productImage'] ?>
+              src = <?php echo $product['productImage'] ?>
             >
             <?php
 
