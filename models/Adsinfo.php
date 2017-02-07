@@ -10,10 +10,11 @@ class Adsinfo extends ActiveRecord
 	public function rules()
 	{
 		return[
-            [['adTitle', 'adDescription','categoryId','price'], 'required'],
+            [['adTitle','subDescription', 'adDescription','categoryId','price'], 'required'],
             ['adDescription', 'isExceeding250'],
             ['adTitle', 'isExceeding80'],
             ['productImage', 'isExceeding250'], 
+            ['subDescription', 'isExceeding80'],
             [['price'], 'number', 'numberPattern' => '/^\d{0,8}(\.\d{1,4})?$/','message' => 'Price must be a number which can be upto 8 digits and 4 decimals.'],
 
 		];

@@ -37,7 +37,11 @@ use app\models\Userinfo;
                         <b style="color:#00628B"> Contact Seller:</b><br>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         
-                        <?php echo  $userInfo['contactAddress']; ?><br>
+                        <?php 
+                            echo $userInfo['name']; 
+                            echo ","; 
+                            echo  $userInfo['contactAddress'];
+                         ?><br>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <br><br>
 

@@ -16,10 +16,9 @@ $this->params['breadcrumbs'][] = 'My Account  / '. $this->title;
 	    <div class="div-form">
 	    	
 		    <?= $form->field($model, 'adTitle')->label("Product Title")->textInput(['autofocus' => true]) ?>
+		    <?= $form->field($model, 'subDescription')->label("Product Subtitle") ?>
 		    <?= $form->field($model, 'adDescription')->textArea()->label("Product Description") ?>
 		    <?= $form->field($model, 'price')->label("Product Price") ?>
-		    <?= $form->field($model, 'contactAddress')->textArea()->label("Contact Address") ?>
-		    <?= $form->field($model, 'contactNumber')->label("Contact Number") ?>
 		    <?= $form->field($upmodel, 'file')->fileInput() ?>
 		    <div class="form-group">
 		        <?= Html::submitButton('Save Changes', ['class' => 'btn btn-primary'],  array('name' => 'submitButton')) ?>

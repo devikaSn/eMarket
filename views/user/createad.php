@@ -18,6 +18,7 @@ $this->params['breadcrumbs'][] = 'My Account  / '. $this->title;
 	    	<?= Html::activeDropDownList($model, 'categoryId',$items) ?>
 	    	<br><br>
 		    <?= $form->field($model, 'adTitle')->label("Product Title")->textInput(['autofocus' => true]) ?>
+		    <?= $form->field($model, 'subDescription')->label("Product Subtitle") ?>
 		    <?= $form->field($model, 'adDescription')->textArea()->label("Product Description") ?>
 		    <?= $form->field($model, 'price')->label("Product Price") ?>
 		    <?= $form->field($upmodel, 'file')->fileInput() ?>

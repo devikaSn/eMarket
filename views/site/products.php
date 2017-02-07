@@ -42,7 +42,7 @@ $this->params['breadcrumbs'][] = 'Products';
                           ?>
                     </h4>
                     <p>
-                     <?php echo $productInfo['adDescription'] ?>
+                     <?php echo $productInfo['subDescription'] ?>
                     </p>
                   </div>
 
