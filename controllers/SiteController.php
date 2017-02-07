@@ -352,17 +352,21 @@ class SiteController extends Controller
         //fetch the query from db
         if((!$categoryId == NULL) && ((!$lowerPrice == NULL) && (!$upperPrice == NULL))) {
             if($productTitle == NULL) {
+                 //when category and price range is given
                  $query = Adsinfo::find()->where(['categoryId' => $categoryId])->andWhere(['between', 'price', $lowerPrice, $upperPrice ])->orderBy(['adTitle' => SORT_ASC]);
             }else {
-                 $query = Adsinfo::find()->where(['categoryId' => $categoryId, 'adTitle' => $productTitle])->andWhere(['between', 'price', $lowerPrice, $upperPrice ])->orderBy(['adTitle' => SORT_ASC]);
+                 //when category, title and price range is given
+                $query = Adsinfo::find()->where(['categoryId' => $categoryId])->andFilterWhere(['like', 'adTitle', $productTitle])->andWhere(['between', 'price', $lowerPrice, $upperPrice ])->orderBy(['adTitle' => SORT_ASC]);
             }
            
         }else {
             if(($lowerPrice == NULL) && ($upperPrice == NULL)) {
                 if($productTitle == NULL) {
+                   //when category is given
                     $query = Adsinfo::find()->where(['categoryId' => $categoryId])->orderBy(['adTitle' => SORT_ASC]);
                 }else {
-                    $query = Adsinfo::find()->where(['categoryId' => $categoryId, 'adTitle' => $productTitle])->orderBy(['adTitle' => SORT_ASC]);
+                    //when title and category is given
+                    $query = Adsinfo::find()->where(['categoryId' => $categoryId])->andFilterWhere(['like', 'adTitle', $productTitle])->orderBy(['adTitle' => SORT_ASC]);
                 }  
             }
         }
