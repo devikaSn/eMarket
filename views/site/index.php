@@ -16,7 +16,7 @@ $this->title = 'My Yii Application';
                <h1>Welcome <?php echo $name ?>!</h1>
         <?php }else { ?>
         
-               <h1>Welcome To DealIn!</h1>
+               <h1>Welcome To Deal In!</h1>
 
        <?php } ?>
         
