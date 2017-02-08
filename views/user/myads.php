@@ -25,9 +25,22 @@ $this->params['breadcrumbs'][] = 'My Account  / '. $this->title;
        ?>
               <div class="product-item">
                   <div class ="product-img" style="height:180px">
-                    <img 
+                   <?php 
+                      if($productInfo['productImage'] == NULL) {
+                    ?> 
+                       <img 
+                      src = <?php echo 'uploads/placeholder.png' ?>
+                      >
+                    <?php
+                      }else {
+                    ?> 
+                       <img 
                       src = <?php echo $productInfo['productImage'] ?>
                     >
+                    <?php
+
+                      }
+                    ?>
                   </div>
                   <div class="product-details">
                       <h4>
